@@ -147,4 +147,24 @@ required = {
 for skill, score in skill_data.items():
     gap = max(0, required[skill] - score)
     st.write(f"{skill} - Need to improve: {gap}%")
+st.divider()
 
+st.subheader("📅 Your 7-Day Learning Plan")
+
+if readiness < 50:
+    st.write("Day 1: Python Basics")
+    st.write("Day 2: SQL Basics")
+    st.write("Day 3: Excel Basics")
+    st.write("Day 4: Power BI Basics")
+    st.write("Day 5: Python Practice")
+    st.write("Day 6: SQL Practice")
+    st.write("Day 7: Mini Project")
+
+else:
+    st.write("Day 1: Advanced Python")
+    st.write("Day 2: SQL Queries")
+    st.write("Day 3: Excel Dashboard")
+    st.write("Day 4: Power BI Dashboard")
+    st.write("Day 5: Data Analysis")
+    st.write("Day 6: Mini Project")
+    st.write("Day 7: Interview Preparation")
