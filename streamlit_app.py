@@ -133,5 +133,18 @@ skill_data = {
 }
 
 st.bar_chart(skill_data, horizontal=True)
+st.divider()
 
+st.subheader("🎯 Skill Gap Summary")
+
+required = {
+    "Python": 80,
+    "SQL": 90,
+    "Excel": 80,
+    "Power BI": 80
+}
+
+for skill, score in skill_data.items():
+    gap = max(0, required[skill] - score)
+    st.write(f"{skill} - Need to improve: {gap}%")
 
