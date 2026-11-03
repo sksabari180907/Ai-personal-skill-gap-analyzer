@@ -91,3 +91,24 @@ if st.button("Analyze My Skills 🚀"):
     st.success(
         f"Great {name}! Your career goal is {career}."
     )
+st.divider()
+
+st.header("🎯 Career Readiness Prediction")
+
+readiness = (python + sql + excel + powerbi) / 4
+
+st.metric(
+    "Career Readiness Score",
+    f"{readiness:.1f}%"
+)
+
+if readiness >= 75:
+    st.success("🟢 You are Job Ready!")
+elif readiness >= 50:
+    st.warning("🟡 You are Almost Ready!")
+else:
+    st.error("🔴 You Need More Training!")
+
+st.progress(int(readiness))
+
+
