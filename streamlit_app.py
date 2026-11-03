@@ -115,5 +115,13 @@ else:
     st.error("🔴 You Need More Training!")
 
 st.progress(int(readiness))
+st.divider()
+
+st.subheader("📊 Skill-wise Performance")
+
+st.write(f"Python: {python}%")
+st.write(f"SQL: {sql}%")
+st.write(f"Excel: {excel}%")
+st.write(f"Power BI: {powerbi}%")
 
 
