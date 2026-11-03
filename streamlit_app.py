@@ -1,6 +1,93 @@
 import streamlit as st
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+st.set_page_config(
+    page_title="Skill Gap Analyzer",
+    page_icon="🎯",
+    layout="centered"
 )
+
+st.title("🎯 AI Personal Skill Gap Analyzer")
+
+st.write(
+    "Discover your skills and build your career roadmap!"
+)
+
+st.divider()
+
+st.header("👨‍🎓 Student Details")
+
+name = st.text_input("Enter Your Name")
+
+career = st.selectbox(
+    "Select Your Dream Career",
+    ["Data Analyst", "Data Scientist",
+     "AI Engineer", "Business Analyst"]
+)
+
+st.divider()
+
+st.header("📊 Skill Assessment")
+
+python = st.slider("Python", 0, 100, 30)
+sql = st.slider("SQL", 0, 100, 40)
+excel = st.slider("Excel", 0, 100, 20)
+powerbi = st.slider("Power BI", 0, 100, 10)
+
+if st.button("Analyze My Skills 🚀"):
+
+    st.subheader("Your Skill Analysis")
+
+    skills = {
+        "Python": python,
+        "SQL": sql,
+        "Excel": excel,
+        "Power BI": powerbi
+    }
+
+    required = {
+        "Python": 80,
+        "SQL": 90,
+        "Excel": 80,
+        "Power BI": 80
+    }
+
+    average = sum(skills.values()) / 4
+
+    st.metric("Overall Skill Score", f"{average:.1f}%")
+
+    st.subheader("Skill Gap Report")
+
+    for skill in skills:
+
+        gap = required[skill] - skills[skill]
+
+        if gap > 0:
+            st.warning(
+                f"{skill}: Improve by {gap}%"
+            )
+        else:
+            st.success(f"{skill}: Target achieved!")
+
+    st.subheader("📈 Skill Comparison")
+
+    st.bar_chart({
+        "Current Skills": skills,
+        "Required Skills": required
+    })
+
+    st.subheader("💡 Learning Recommendations")
+
+    for skill in skills:
+
+        if skills[skill] < 40:
+            st.write(f"📘 Learn {skill} from basics")
+
+        elif skills[skill] < 70:
+            st.write(f"📗 Practice {skill} regularly")
+
+        else:
+            st.write(f"🏆 Improve advanced {skill} skills")
+
+    st.success(
+        f"Great {name}! Your career goal is {career}."
+    )
