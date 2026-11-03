@@ -123,5 +123,15 @@ st.write(f"Python: {python}%")
 st.write(f"SQL: {sql}%")
 st.write(f"Excel: {excel}%")
 st.write(f"Power BI: {powerbi}%")
+st.subheader("📈 Skill Comparison")
+
+skill_data = {
+    "Python": python,
+    "SQL": sql,
+    "Excel": excel,
+    "Power BI": powerbi
+}
+
+st.bar_chart(skill_data)
 
 
