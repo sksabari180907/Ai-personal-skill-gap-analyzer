@@ -1,6 +1,5 @@
 import streamlit as st
-from io import BytesIO
-from reportlab.pdfgen import canvas
+
 st.set_page_config(
     page_title="Skill Gap Analyzer",
     page_icon="🎯",
