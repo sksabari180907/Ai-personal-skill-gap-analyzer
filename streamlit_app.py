@@ -132,6 +132,6 @@ skill_data = {
     "Power BI": powerbi
 }
 
-st.bar_chart(skill_data)
+st.bar_chart(skill_data, horizontal=True)
 
 
