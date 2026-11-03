@@ -95,7 +95,12 @@ st.divider()
 
 st.header("🎯 Career Readiness Prediction")
 
-readiness = (python + sql + excel + powerbi) / 4
+readiness = (
+    (min(python, 80) / 80 +
+     min(sql, 90) / 90 +
+     min(excel, 80) / 80 +
+     min(powerbi, 80) / 80) / 4
+) * 100
 
 st.metric(
     "Career Readiness Score",
